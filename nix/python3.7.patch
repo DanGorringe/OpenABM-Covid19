@@ -1,0 +1,30 @@
+diff --git a/Makefile b/Makefile
+index 8498251..1b80d11 100644
+--- a/Makefile
++++ b/Makefile
+@@ -18,7 +18,7 @@ else
+ 	PYTHON = python3
+ endif
+ 
+-PIP_FLAGS := --upgrade
++PIP_FLAGS := $(PIP_FLAGS) --upgrade
+ 
+ # The 'in-place' flag is different on macOS (BSD) and Linux/minGW.
+ # https://linux.die.net/man/1/sed
+diff --git a/src/setup.py b/src/setup.py
+index 3536af9..c7fdf90 100644
+--- a/src/setup.py
++++ b/src/setup.py
+@@ -53,11 +53,10 @@ setup(
+     include_package_data=True,
+     install_requires=[
+         "click",
+-        "matplotlib==3.2.2",
++        "matplotlib>=3.2.2",
+         "numpy",
+         "pandas",
+         "scipy",
+         "tqdm",
+-        "dataclasses",
+     ],
+ )
